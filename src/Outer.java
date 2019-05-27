@@ -1,5 +1,3 @@
-
-
 public class Outer {
 	private String aaa;
 	public class Inner {
@@ -60,6 +58,35 @@ public class Outer {
 		
 		Internal instestinal=new Internal(); // Se dichiarata statica diventa top class!!
 		
+		// Creazione classe anonima da Classe base
+		Anonima anon=new Anonima() {
+			@Override
+			public void metodo() {
+				System.out.println("Ecco il metodo riscritto nella classe senza nome");
+				metodoNonUsabile(); // Richiamabile solo da qui!!
+			}
+			public void metodoNonUsabile() {
+				System.out.println("Non utilizzabile da fuori");
+			}
+		};
+		
+	    anon.metodo();
+	    
+	    // Creazione classe anonima da interfaccia
+	    Volante ufo=new Volante() {
+	    	@Override
+	    	public void plana() {
+	    		System.out.println("un oggetto volante non identificato plana");
+	    	}
+	    	@Override
+	    	public void decolla() {
+	    		System.out.println("un oggetto volante non identificato decolla");
+	    	}
+	    	@Override
+	    	public void atterra() {
+	    		System.out.println("un oggetto volante non identificato atterra");
+	    	}
+ 	    };
 	}
 
 }
