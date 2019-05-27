@@ -8,6 +8,7 @@ public class Outer {
 			ugo=u;
 		}
 		int getUgo() {
+			System.out.println("Sono getUgo nella Inner");
 			System.out.println(aaa);
 			return ugo;
 		}
@@ -28,7 +29,7 @@ public class Outer {
 		aaa="Cicocico";	
 		Inner in=new Inner();
 		in.setUgo(7);
-		System.out.println("Sono dentro="+in.getUgo());
+		System.out.println("Sono il costruttore di Outer e chiamo Inner="+in.getUgo());
 	}
 	
 	public void innesto() {
@@ -36,8 +37,10 @@ public class Outer {
 		class Interna {
 			private int gedeone=13;
 			public void printGedeone() {
+				System.out.println("Sono Interna dentro innesto");
 				System.out.println("Gedeone="+gedeone);
 				gedeone=valore;
+				System.out.println("aaa vale="+Outer.this.aaa);
 				// valore++; //--> Non possibile
 			}
 		}
